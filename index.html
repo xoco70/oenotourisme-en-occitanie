@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Découvrez l'œnotourisme en Occitanie, une région aux vignobles exceptionnels. Visitez les domaines viticoles, dégustez des vins d'exception et explorez le patrimoine viticole occitan.">
+    <meta name="keywords" content="œnotourisme, Occitanie, vignobles, vin, domaines viticoles, dégustation, tourisme viticole, sud de la France">
+    <title>Œnotourisme en Occitanie | Découverte des Terroirs Viticoles du Sud</title>
+    <style>
+        /* Variables */
+        :root {
+            --primary: #8B0000;
+            --secondary: #F0E68C;
+            --accent: #2E8B57;
+            --light: #FFF8DC;
+            --dark: #2B1B17;
+            --shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            --radius: 8px;
+        }
+        
+        /* Global */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--light);
+        }
+        
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+        
+        h2 {
+            font-size: 2rem;
+            border-bottom: 2px solid var(--secondary);
+            padding-bottom: 0.5rem;
+            margin-top: 2rem;
+        }
+        
+        h3 {
+            font-size: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        p {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+        }
+        
+        a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        a:hover {
+            color: var(--primary);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/api/placeholder/1200/500') center/cover no-repeat;
+            color: white;
+            padding: 8rem 0;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        header h1 {
+            color: white;
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        header p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--accent);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: var(--radius);
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            background-color: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* Navigation */
+        nav {
+            background-color: white;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            justify-content: center;
+            padding: 1rem 0;
+        }
+        
+        nav li {
+            margin: 0 1rem;
+        }
+        
+        nav a {
+            color: var(--dark);
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius);
+            transition: all 0.3s ease;
+        }
+        
+        nav a:hover {
+            background-color: var(--secondary);
+            color: var(--primary);
+        }
+        
+        /* Sections */
+        section {
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background-color: white;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+        }
+        
+        /* Grid layouts */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .card {
+            background-color: white;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .card-image {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .card-content {
+            padding: 1.5rem;
+        }
+        
+        /* Two column layout */
+        .two-columns {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        /* Featured section */
+        .featured {
+            background-color: var(--secondary);
+            color: var(--dark);
+            padding: 3rem 2rem;
+            border-radius: var(--radius);
+            margin: 3rem 0;
+            box-shadow: var(--shadow);
+        }
+        
+        .featured h2 {
+            color: var(--primary);
+            border-bottom: 2px solid var(--primary);
+        }
+        
+        /* Testimonials */
+        .testimonial {
+            background-color: var(--light);
+            padding: 1.5rem;
+            border-radius: var(--radius);
+            border-left: 4px solid var(--accent);
+            margin-bottom: 1.5rem;
+        }
+        
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--accent);
+            display: block;
+            margin-top: 1rem;
+            text-align: right;
+        }
+        
+        /* Call to action */
+        .cta {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/api/placeholder/1200/500') center/cover no-repeat;
+            color: white;
+            text-align: center;
+            padding: 4rem 2rem;
+            border-radius: var(--radius);
+            margin: 2rem 0;
+        }
+        
+        .cta h2 {
+            color: white;
+            border-bottom: none;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 3rem 0;
+            margin-top: 3rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        footer h3 {
+            color: var(--secondary);
+            border-bottom: 1px solid var(--secondary);
+            padding-bottom: 0.5rem;
+        }
+        
+        footer ul {
+            list-style: none;
+            margin-top: 1rem;
+        }
+        
+        footer li {
+            margin-bottom: 0.5rem;
+        }
+        
+        footer a {
+            color: var(--light);
+        }
+        
+        footer a:hover {
+            color: var(--secondary);
+        }
+        
+        .copyright {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            header {
+                padding: 5rem 0;
+            }
+            
+            header h1 {
+                font-size: 2.5rem;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav li {
+                margin: 0.5rem 0;
+            }
+        }
+        
+        /* CSS pour liste des régions viticoles */
+        .wine-regions {
+            margin-top: 2rem;
+        }
+        
+        .region-item {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--secondary);
+        }
+        
+        .region-item:last-child {
+            border-bottom: none;
+        }
+        
+        /* CSS pour la carte interactive des vignobles */
+        .map-container {
+            height: 400px;
+            margin: 2rem 0;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+    </style>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#accueil">Accueil</a></li>
+            <li><a href="#regions">Régions Viticoles</a></li>
+            <li><a href="#experiences">Expériences</a></li>
+            <li><a href="#domaines">Domaines Recommandés</a></li>
+            <li><a href="#agenda">Agenda</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <header id="accueil">
+        <div class="container">
+            <h1>Œnotourisme en Occitanie</h1>
+            <p>Découvrez les trésors viticoles d'une région aux multiples terroirs. De Cahors à la Méditerranée, partez à la rencontre des vignerons passionnés et des vins d'exception.</p>
+            <a href="#experiences" class="btn">Découvrir nos expériences</a>
+        </div>
+    </header>
+
+    <main class="container">
+        <section>
+            <h2>L'Occitanie, une mosaïque de terroirs</h2>
+            <div class="two-columns">
+                <div>
+                    <p>L'Occitanie est une région viticole majeure qui s'étend des contreforts du Massif Central jusqu'aux rivages méditerranéens. Avec ses 200 000 hectares de vignes, elle représente le plus grand vignoble du monde en superficie dédiée aux vins d'appellation.</p>
+                    <p>Ce territoire, béni des dieux, offre une diversité exceptionnelle de terroirs qui donne naissance à des vins aux caractères bien trempés : des rouges puissants de Cahors, aux blancs délicats et aromatiques du Gaillac, en passant par les rosés ensoleillés du Languedoc.</p>
+                    <p>L'histoire viticole de la région remonte à l'époque romaine, et ce savoir-faire ancestral, transmis de génération en génération, se conjugue aujourd'hui avec des techniques modernes respectueuses de l'environnement. De plus en plus de domaines se tournent vers la viticulture biologique et biodynamique, préservant ainsi la richesse de ce patrimoine unique.</p>
+                </div>
+                <div>
+                    <img src="/api/placeholder/600/400" alt="Vignoble d'Occitanie avec vue sur les Pyrénées">
+                </div>
+            </div>
+        </section>
+
+        <section id="regions">
+            <h2>Les Grandes Régions Viticoles d'Occitanie</h2>
+            <div class="wine-regions">
+                <div class="region-item">
+                    <h3>Languedoc-Roussillon</h3>
+                    <p>Le Languedoc-Roussillon constitue le plus grand vignoble du monde. Ses appellations prestigieuses comme Corbières, Minervois, ou Pic Saint-Loup produisent principalement des vins rouges et rosés méditerranéens, souvent à base de Grenache, Syrah et Mourvèdre. La région est également connue pour ses vins doux naturels comme le Muscat de Rivesaltes ou le Banyuls.</p>
+                </div>
+                <div class="region-item">
+                    <h3>Sud-Ouest</h3>
+                    <p>Cette partie de l'Occitanie abrite des appellations mythiques comme Cahors, Gaillac, Fronton ou Madiran. Les vins y sont produits à partir de cépages autochtones comme le Tannat, la Négrette ou le Mauzac, donnant des vins de caractère avec une forte identité régionale. Le fameux "vin noir" de Cahors, élaboré à partir du cépage Malbec, est particulièrement réputé.</p>
+                </div>
+                <div class="region-item">
+                    <h3>Vallée du Rhône méridionale</h3>
+                    <p>L'extrémité est de l'Occitanie englobe une partie de la Vallée du Rhône avec des appellations comme Costières de Nîmes. Ces vins, influencés par le climat méditerranéen, expriment chaleur et générosité avec des notes d'épices et de garrigue caractéristiques.</p>
+                </div>
+            </div>
+            <div class="map-container">
+                <img src="/api/placeholder/1000/400" alt="Carte des régions viticoles d'Occitanie">
+            </div>
+        </section>
+
+        <section id="experiences" class="featured">
+            <h2>Expériences Œnotouristiques</h2>
+            <p>L'Occitanie offre une multitude d'expériences œnotouristiques uniques qui raviront les amateurs comme les connaisseurs. Voici quelques suggestions pour votre séjour viticole :</p>
+            <div class="grid">
+                <div class="card">
+                    <div class="card-image" style="background-image: url('/api/placeholder/300/200')"></div>
+                    <div class="card-content">
+                        <h3>Dégustations Commentées</h3>
+                        <p>Découvrez les subtilités des vins occitans lors de séances de dégustation guidées par des œnologues experts. Une occasion de former votre palais aux arômes typiques de la région.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-image" style="background-image: url('/api/placeholder/300/200')"></div>
+                    <div class="card-content">
+                        <h3>Balades dans les Vignes</h3>
+                        <p>Parcourez les vignobles à pied, à vélo ou même à cheval. Ces balades vous permettront de comprendre l'influence du terroir et du climat sur la vigne.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-image" style="background-image: url('/api/placeholder/300/200')"></div>
+                    <div class="card-content">
+                        <h3>Ateliers d'Assemblage</h3>
+                        <p>Devenez vigneron d'un jour en créant votre propre cuvée sous les conseils avisés d'un maître de chai. Une expérience immersive inoubliable.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-image" style="background-image: url('/api/placeholder/300/200')"></div>
+                    <div class="card-content">
+                        <h3>Vendanges Touristiques</h3>
+                        <p>Participez aux vendanges en septembre et octobre. Ciseaux en main, vivez l'effervescence de cette période cruciale et partagez un repas convivial avec l'équipe du domaine.</p>
+                    </div>
+                </div>
+            </div>
+            <p class="text-center">Pour découvrir plus d'expériences œnotouristiques exceptionnelles en Occitanie, visitez <a href="https://vinyaqui.com" title="VinyAqui - Expériences œnotouristiques en Occitanie" rel="dofollow">VinyAqui.com</a>, votre guide expert de l'œnotourisme local.</p>
+        </section>
+
+        <section id="domaines">
+            <h2>Domaines Viticoles Recommandés</h2>
+            <p>Voici une sélection de domaines viticoles qui se distinguent par la qualité de leur accueil œnotouristique et l'excellence de leurs vins :</p>
+            <div class="grid">
+                <div class="card">
+                    <div class="card-image" style="background-image: url('/api/placeholder/300/200')"></div>
+                    <div class="card-content">
+                        <h3>Château de Caraguilhes</h3>
+                        <p>Dans les Corbières, ce domaine en biodynamie propose une expérience complète : visite de caves historiques, dégustation en plein air face aux Pyrénées et hébergement dans un gîte au cœur des vignes.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-image" style="background-image: url('/api/placeholder/300/200')"></div>
+                    <div class="card-content">
+                        <h3>Domaine Gayda</h3>
+                        <p>Situé près de Limoux, ce domaine innovant allie tradition et modernité. Son restaurant gastronomique et ses ateliers d'assemblage en font une étape incontournable.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-image" style="background-image: url('/api/placeholder/300/200')"></div>
+                    <div class="card-content">
+                        <h3>Mas des Caprices</h3>
+                        <p>Ce domaine familial en bord de Méditerranée conjugue vins biologiques d'exception et table gourmande mettant en valeur les produits locaux.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-image" style="background-image: url('/api/placeholder/300/200')"></div>
+                    <div class="card-content">
+                        <h3>Château Boujac</h3>
+                        <p>Dans l'appellation Fronton, ce domaine propose des cuvées remarquables à base de Négrette, cépage emblématique local. Leurs événements culturels dans le chai sont très prisés.</p>
+                    </div>
+                </div>
+            </div>
+            <p>Pour des recommandations personnalisées et des circuits œnotouristiques sur mesure, consultez les experts de <a href="https://vinyaqui.com" title="VinyAqui - L'œnotourisme en Occitanie" rel="dofollow">VinyAqui.com</a>, qui connaissent chaque recoin viticole de l'Occitanie.</p>
+        </section>
+
+        <div class="testimonials">
+            <h2>Ce qu'en disent nos visiteurs</h2>
+            <div class="testimonial">
+                <p>"Notre séjour œnotouristique en Occitanie a été une révélation. La diversité des paysages et des vins nous a enchantés, mais c'est surtout la chaleur de l'accueil des vignerons qui nous a conquis. Une expérience authentique que nous recommandons vivement."</p>
+                <span class="testimonial-author">— Sophie et Pierre, passionnés de vin de Lille</span>
+            </div>
+            <div class="testimonial">
+                <p>"En tant qu'amateur de vins corsés, j'ai trouvé mon bonheur dans les appellations du Sud-Ouest occitan. Les dégustations guidées m'ont permis d'affiner ma connaissance des terroirs. Je repars avec une cave enrichie et des souvenirs plein la tête !"</p>
+                <span class="testimonial-author">— Jean-Marc, œnophile parisien</span>
+            </div>
+        </div>
+
+        <section id="agenda">
+            <h2>Agenda Œnotouristique</h2>
+            <p>L'Occitanie viticole vit au rythme des saisons et des festivités qui célèbrent le vin tout au long de l'année :</p>
+            <div class="region-item">
+                <h3>Printemps</h3>
+                <p><strong>Mai :</strong> Fête de la Saint-Vincent à Limoux - Célébration du saint patron des vignerons avec dégustations et animations folkloriques.</p>
+                <p><strong>Juin :</strong> Fête des Vignerons du Languedoc - Découverte des nouveaux millésimes sur les places de villages.</p>
+            </div>
+            <div class="region-item">
+                <h3>Été</h3>
+                <p><strong>Juillet-Août :</strong> Les Estivales dans plusieurs villes d'Occitanie - Marchés nocturnes mêlant vins, gastronomie et artisanat local.</p>
+                <p><strong>Août :</strong> Jazz in Marciac - Festival de jazz mondialement reconnu où le vin local accompagne les notes bleues.</p>
+            </div>
+            <div class="region-item">
+                <h3>Automne</h3>
+                <p><strong>Septembre-Octobre :</strong> Période des vendanges - Nombreux domaines proposent des activités participatives.</p>
+                <p><strong>Novembre :</strong> Fête du vin nouveau - Célébration des primeurs dans plusieurs appellations.</p>
+            </div>
+            <div class="region-item">
+                <h3>Hiver</h3>
+                <p><strong>Décembre :</strong> Marchés de Noël viticoles - Idéal pour découvrir des cuvées festives.</p>
+                <p><strong>Février :</strong> Salon des vins de Gaillac - Rendez-vous incontournable des amateurs.</p>
+            </div>
+            <p>Pour un calendrier complet et régulièrement mis à jour des événements œnotouristiques en Occitanie, visitez <a href="https://vinyaqui.com/agenda" title="Agenda œnotouristique VinyAqui" rel="dofollow">l'agenda VinyAqui</a>.</p>
+        </section>
+
+        <div class="cta">
+            <h2>Planifiez votre séjour œnotouristique en Occitanie</h2>
+            <p>Laissez-vous tenter par une escapade viticole dans nos terroirs d'exception. Des expériences sur mesure vous attendent pour découvrir notre patrimoine viticole.</p>
+            <a href="https://vinyaqui.com/contact" class="btn" title="Contact VinyAqui" rel="dofollow">Contactez nos experts</a>
+        </div>
+
+        <section id="contact">
+            <h2>Informations pratiques</h2>
+            <div class="two-columns">
+                <div>
+                    <h3>Comment préparer votre visite</h3>
+                    <p>Pour profiter pleinement de votre séjour œnotouristique en Occitanie, voici quelques conseils :</p>
+                    <ul>
+                        <li>Réservez vos visites à l'avance, surtout en haute saison</li>
+                        <li>Prévoyez un chauffeur désigné ou utilisez les services de taxis locaux</li>
+                        <li>Équipez-vous de chaussures confortables pour les balades dans les vignes</li>
+                        <li>N'hésitez pas à demander conseil pour vos achats de vins</li>
+                    </ul>
+                    <p>Pour des recommandations personnalisées ou un itinéraire sur mesure, les experts de <a href="https://vinyaqui.com" title="VinyAqui - Œnotourisme en Occitanie" rel="dofollow">VinyAqui.com</a> se tiennent à votre disposition.</p>
+                </div>
+                <div>
+                    <h3>Comment nous contacter</h3>
+                    <p><i class="fas fa-envelope"></i> Email : contact@oenotourisme-occitanie.fr</p>
+                    <p><i class="fas fa-phone"></i> Téléphone : +33 (0)4 XX XX XX XX</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Adresse : Office de Tourisme Viticole d'Occitanie, Place de la Vigne, 34000 Montpellier</p>
+                    <p>Suivez-nous sur les réseaux sociaux :</p>
+                    <p>
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-square fa-2x"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram fa-2x"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter-square fa-2x"></i></a>
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <h3>Œnotourisme en Occitanie</h3>
+                    <p>Votre portail pour découvrir les merveilles viticoles de l'Occitanie, de la vigne au verre.</p>
+                    <p>En partenariat avec <a href="https://vinyaqui.com" title="VinyAqui - Spécialiste de l'œnotourisme en Occitanie" rel="dofollow">VinyAqui.com</a>, experts de l'œnotourisme local.</p>
+                </div>
+                <div>
+                    <h3>Liens rapides</h3>
+                    <ul>
+                        <li><a href="#accueil">Accueil</a></li>
+                        <li><a href="#regions">Régions Viticoles</a></li>
+                        <li><a href="#experiences">Expériences</a></li>
+                        <li><a href="#domaines">Domaines Recommandés</a></li>
+                        <li><a href="#agenda">Agenda</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Appellations</h3>
+                    <ul>
+                        <li><a href="#">Corbières</a></li>
+                        <li><a href="#">Cahors</a></li>
+                        <li><a href="#">Gaillac</a></li>
+                        <li><a href="#">Pic Saint-Loup</a></li>
+                        <li><a href="#">Fronton</a></li>
+                        <li><a href="#">Minervois</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Ressources</h3>
+                    <ul>
+                        <li><a href="#">Guide des cépages d'Occitanie</a></li>
+                        <li><a href="#">Carte des domaines viticoles</a></li>
+                        <li><a href="#">Histoire du vin en Occitanie</a></li>
+                        <li><a href="#">Gastronomie et accords mets-vins</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Œnotourisme en Occitanie. Tous droits réservés.</p>
+                <p>Site réalisé en partenariat avec <a href="https://vinyaqui.com" title="VinyAqui - L'œnotourisme en Occitanie" rel="dofollow">VinyAqui.com</a>, votre expert de l'œnotourisme en Occitanie.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
